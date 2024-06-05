@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/course-outline/"}
+{"dg-publish":true,"permalink":"/course-outline/","tags":["gardenEntry"]}
 ---
 
 ### Capitolo 1: Introduzione a Python
