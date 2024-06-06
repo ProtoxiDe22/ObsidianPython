@@ -602,10 +602,6 @@ L'input dell'utente è fondamentale per interagire con i programmi.
 
 ---
 
----
-
----
-
 ### Input/Output da Console
 
 ### Operazioni di Input
@@ -887,186 +883,534 @@ Queste istruzioni permettono di controllare il flusso all'interno dei loop.
 
 ---
 
-## Data Collection - Tuple, Dizionari, Elenchi e Stringhe
+## Data Collection - Liste, Tuple, Dizionari, Set e Stringhe
 
 ### Liste
 
+Le liste sono collezioni ordinate di elementi che possono essere di qualsiasi tipo. Sono mutabili, il che significa che gli elementi possono essere modificati dopo la creazione della lista.
+
 #### Creazione e manipolazione delle liste
 
-Le liste sono collezioni ordinate di elementi che possono essere di qualsiasi tipo.
+- **Creazione di una lista:**
+  Le liste possono essere create utilizzando le parentesi quadre `[]`, con gli elementi separati da virgole.
 
-- **Liste vuote e popolazione di liste:**
   ```python
-  lista_vuota = []
-  lista_vuota.append(1)
-  lista_vuota.append(2)
-  lista_vuota.append(3)
+  frutti = ["mela", "banana", "ciliegia"]
+  # Lista con tre elementi: mela, banana, ciliegia
   ```
 
-- **Indicizzazione e slicing:**
+- **Liste vuote e popolazione di liste:**
+  Una lista vuota può essere creata e popolata successivamente utilizzando il metodo `append()`.
+
   ```python
-  lista = [1, 2, 3, 4, 5]
-  primo_elemento = lista[0]
-  ultimi_due = lista[-2:]
+  numeri = []
+  numeri.append(1)
+  numeri.append(2)
+  numeri.append(3)
+  # Lista numeri: [1, 2, 3]
+  ```
+
+- **Indicizzazione:**
+  Gli elementi di una lista possono essere accessibili utilizzando l'indice, partendo da 0.
+
+  ```python
+  primo_frutto = frutti[0]  # "mela"
+  ultimo_frutto = frutti[-1]  # "ciliegia"
+  # L'indice -1 accede all'ultimo elemento
+  ```
+
+- **Slicing:**
+  Le liste possono essere "sliced" per ottenere sottoliste.
+
+  ```python
+  sottolista = frutti[1:3]
+  # Sottolista contiene: ["banana", "ciliegia"]
   ```
 
 ---
 
 #### Metodi delle liste
 
-Le liste in Python hanno molti metodi utili per la manipolazione dei dati.
+Le liste in Python hanno molti metodi integrati per manipolare i dati:
 
-- **append(), insert(), remove(), pop(), sort(), reverse():**
+- **append():** Aggiunge un elemento alla fine della lista.
+
   ```python
-  lista = [3, 1, 4, 1, 5]
-  lista.append(9)  # Aggiunge un elemento alla fine
-  lista.insert(2, 2)  # Inserisce un elemento alla posizione specificata
-  lista.remove(1)  # Rimuove la prima occorrenza di 1
-  lista.pop()  # Rimuove l'ultimo elemento
+  frutti.append("arancia")
+  # Lista frutti: ["mela", "banana", "ciliegia", "arancia"]
+  ```
 
+- **insert():** Inserisce un elemento alla posizione specificata.
 
-  lista.sort()  # Ordina la lista
-  lista.reverse()  # Inverte l'ordine degli elementi
+  ```python
+  frutti.insert(1, "pera")
+  # Lista frutti: ["mela", "pera", "banana", "ciliegia", "arancia"]
+  ```
+
+- **remove():** Rimuove la prima occorrenza di un elemento.
+
+  ```python
+  frutti.remove("banana")
+  # Lista frutti: ["mela", "pera", "ciliegia", "arancia"]
+  ```
+
+- **pop():** Rimuove e restituisce l'elemento all'indice specificato (default: ultimo elemento).
+
+  ```python
+  ultimo = frutti.pop()
+  # Rimosso "arancia", ultimo = "arancia", Lista frutti: ["mela", "pera", "ciliegia"]
+  ```
+
+- **sort():** Ordina la lista in ordine crescente.
+
+  ```python
+  numeri = [3, 1, 4, 1, 5]
+  numeri.sort()
+  # Lista numeri ordinata: [1, 1, 3, 4, 5]
+  ```
+
+- **reverse():** Inverte l'ordine degli elementi nella lista.
+
+  ```python
+  numeri.reverse()
+  # Lista numeri invertita: [5, 4, 3, 1, 1]
   ```
 
 ---
 
 #### Liste nidificate e comprensione delle liste
 
-- **Liste di liste:**
+- **Liste nidificate:**
+  Le liste possono contenere altre liste come elementi, creando strutture nidificate.
+
   ```python
   matrice = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
   elemento = matrice[1][2]  # 6
+  # Accede all'elemento alla riga 1, colonna 2 della matrice
   ```
 
 - **List comprehension:**
+  Le list comprehension offrono un modo conciso per creare liste basate su espressioni e loop.
+
   ```python
   quadrati = [x**2 for x in range(10)]
+  # Lista quadrati: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
   ```
 
-La comprensione delle liste permette di creare nuove liste in modo conciso e leggibile.
+  In questo esempio, la lista `quadrati` è generata elevando al quadrato ogni numero da 0 a 9.
 
 ---
 
 ### Tuple
 
+Le tuple sono collezioni ordinate e immutabili di elementi. Una volta create, gli elementi di una tupla non possono essere modificati.
+
 #### Creazione e uso delle tuple
 
-Le tuple sono simili alle liste, ma sono immutabili (non possono essere modificate dopo la loro creazione).
+- **Creazione di una tupla:**
+  Le tuple possono essere create utilizzando le parentesi tonde `()`.
+
+  ```python
+  colori = ("rosso", "verde", "blu")
+  # Tupla colori: ("rosso", "verde", "blu")
+  ```
 
 - **Tuple vuote e con un singolo elemento:**
+  Una tupla vuota si crea con `()` e una tupla con un singolo elemento richiede una virgola finale.
+
   ```python
-  tupla_vuota = ()
-  tupla_un_elemento = (1,)
+  vuota = ()
+  singolo = ("solo",)
+  # Tupla vuota: ()
+  # Tupla singolo elemento: ("solo",)
+  ```
+
+- **Accesso agli elementi:**
+  Gli elementi delle tuple sono accessibili tramite indice, come le liste.
+
+  ```python
+  primo_colore = colori[0]  # "rosso"
   ```
 
 ---
 
 #### Differenze tra liste e tuple
 
-- **Immutabilità delle tuple:** Le tuple non possono essere modificate dopo la loro creazione, il che le rende utili per dati che non dovrebbero cambiare.
-- **Operazioni comuni su tuple:**
+- **Immutabilità delle tuple:**
+  Le tuple non possono essere modificate dopo la creazione, il che le rende utili per memorizzare dati costanti.
+
   ```python
-  tupla = (1, 2, 3)
-  primo_elemento = tupla[0]
+  # Tentare di modificare una tupla genererà un errore:
+  # colori[0] = "giallo"  # TypeError: 'tuple' object does not support item assignment
   ```
 
-Le tuple sono spesso usate per dati che sono logicamente correlati e non devono essere modificati.
+- **Operazioni comuni su tuple:**
+  Le tuple supportano operazioni come la concatenazione e la ripetizione.
+
+  ```python
+  altri_colori = ("giallo", "viola")
+  tutti_i_colori = colori + altri_colori
+  # Tupla tutti_i_colori: ("rosso", "verde", "blu", "giallo", "viola")
+  ```
+
+---
+
+
+### Set
+
+I set sono collezioni non ordinate e non indicizzate di elementi unici. Sono mutabili, il che significa che gli elementi possono essere aggiunti o rimossi, ma ogni elemento può apparire una sola volta.
+
+#### Creazione e uso dei set
+
+- **Creazione di un set:**
+  I set possono essere creati utilizzando le parentesi graffe `{}` o la funzione `set()`.
+
+  ```python
+  numeri = {1, 2, 3, 4}
+  # Set numeri: {1, 2, 3, 4}
+  ```
+
+  ```python
+  animali = set(["gatto", "cane", "uccello"])
+  # Set animali: {"gatto", "cane", "uccello"}
+  ```
+
+- **Set vuoti e popolazione di set:**
+  Un set vuoto può essere creato e popolato successivamente.
+
+  ```python
+  colori = set()
+  colori.add("rosso")
+  colori.add("verde")
+  # Set colori: {"rosso", "verde"}
+  ```
+
+---
+
+#### Metodi dei set
+
+- **add():** Aggiunge un elemento al set.
+
+  ```python
+  colori.add("blu")
+  # Set colori: {"rosso", "verde", "blu"}
+  ```
+
+- **remove():** Rimuove un elemento dal set. Genera un errore se l'elemento non è presente.
+
+  ```python
+  colori.remove("verde")
+  # Set colori: {"rosso", "blu"}
+  ```
+
+- **discard():** Rimuove un elemento dal set, se esiste. Non genera errore se l'elemento non è presente.
+
+  ```python
+  colori.discard("giallo")
+  # Set colori rimane: {"rosso", "blu"}
+  ```
+
+- **union():** Restituisce un nuovo set contenente tutti gli elementi di due set.
+
+  ```python
+  altri_colori = {"giallo", "verde"}
+  tutti_i_colori = colori.union(altri_colori)
+  # Set tutti_i_colori: {"rosso", "blu", "giallo", "verde"}
+  ```
+
+- **intersection():** Restituisce un nuovo set contenente solo gli elementi comuni a entrambi i set.
+
+  ```python
+  set1 = {1, 2, 3}
+  set2 = {2, 3, 4}
+  comuni = set1.intersection(set2)
+  # Set comuni: {2, 3}
+  ```
+
+- **difference():** Restituisce un nuovo set contenente gli elementi presenti nel primo set ma non nel secondo.
+
+  ```python
+  differenza = set1.difference(set2)
+  # Set differenza: {1}
+  ```
+
+---
+
+### Differenze tra Tuple e Set
+
+Le tuple e i set sono due tipi di collezioni in Python che hanno caratteristiche e usi distinti:
+
+#### **Tuple**
+
+- **Ordinazione:** Le tuple sono collezioni ordinate. Gli elementi in una tupla mantengono un ordine fisso, e l'accesso agli elementi avviene tramite indice.
+  ```python
+  colori = ("rosso", "verde", "blu")
+  primo_colore = colori[0]  # "rosso"
+  ```
+
+- **Immutabilità:** Le tuple sono immutabili, il che significa che non possono essere modificate dopo la loro creazione. Non è possibile aggiungere, rimuovere o alterare gli elementi di una tupla.
+  ```python
+  colori = ("rosso", "verde", "blu")
+  # Tentativo di modifica: colori[0] = "giallo" genera un errore
+  ```
+
+- **Uso tipico:** Le tuple sono utilizzate quando si ha bisogno di una sequenza di elementi che non deve essere modificata. Sono spesso usate per memorizzare dati eterogenei e come chiavi in un dizionario, poiché le tuple possono essere hashate.
+  ```python
+  posizione = (42.3601, -71.0589)  # Coordinate geografiche immutabili
+  ```
+
+#### **Set**
+
+- **Ordinazione:** I set sono collezioni non ordinate. Non mantengono l'ordine degli elementi e non supportano l'accesso tramite indice. Gli elementi possono apparire in un ordine qualsiasi.
+  ```python
+  frutti = {"mela", "banana", "ciliegia"}
+  # Non è possibile accedere agli elementi tramite indice, ad esempio: frutti[0] genera un errore
+  ```
+
+- **Mutabilità:** I set sono mutabili, il che significa che possono essere modificati dopo la loro creazione. È possibile aggiungere, rimuovere o alterare gli elementi di un set.
+  ```python
+  frutti.add("arancia")
+  frutti.remove("banana")
+  # Set frutti aggiornato: {"mela", "ciliegia", "arancia"}
+  ```
+
+- **Unicità degli elementi:** I set non permettono duplicati. Ogni elemento in un set è unico. Se si tenta di aggiungere un duplicato, esso non verrà inserito.
+  ```python
+  numeri = {1, 2, 3, 3, 4}
+  # Set numeri: {1, 2, 3, 4} (duplice "3" viene ignorato)
+  ```
+
+- **Uso tipico:** I set sono utilizzati quando è necessario memorizzare una collezione di elementi unici e non ordinati. Sono ideali per operazioni come l'unione, l'intersezione e la differenza di collezioni.
+  ```python
+  animali_domestici = {"cane", "gatto", "pesce"}
+  animali_esotici = {"tigre", "elefante", "pesce"}
+  solo_domestici = animali_domestici - animali_esotici
+  # Set solo_domestici: {"cane", "gatto"}
+  ```
+
+#### **Sintesi**
+
+- **Ordinazione:** Le tuple mantengono l'ordine degli elementi, mentre i set no.
+- **Mutabilità:** Le tuple sono immutabili, i set sono mutabili.
+- **Accesso agli elementi:** Le tuple supportano l'accesso tramite indice, i set no.
+- **Unicità:** I set contengono solo elementi unici, le tuple possono avere duplicati.
+- **Uso:** Le tuple sono usate per dati immutabili e ordinati; i set sono usati per collezioni di elementi unici e non ordinati.
 
 ---
 
 ### Dizionari
 
+I dizionari sono collezioni non ordinate di coppie chiave-valore, dove ogni chiave è unica. Sono mutabili e permettono accesso rapido ai valori basato sulla chiave.
+
 #### Creazione e uso dei dizionari
 
-I dizionari sono collezioni non ordinate di coppie chiave-valore.
+- **Creazione di un dizionario:**
+  I dizionari possono essere creati usando le parentesi graffe `{}` con coppie chiave-valore separate da due punti `:`.
+
+  ```python
+  studente = {"nome": "Alice", "eta": 24, "corso": "Informatica"}
+  # Dizionario studente: {"nome": "Alice", "eta": 24, "corso": "Informatica"}
+  ```
 
 - **Dizionari vuoti e popolazione di dizionari:**
+  Un dizionario vuoto può essere creato e popolato successivamente aggiungendo coppie chiave-valore.
+
   ```python
-  dizionario_vuoto = {}
-  dizionario_vuoto["chiave"] = "valore"
+  dati = {}
+  dati["città"] = "Roma"
+  dati["popolazione"] = 2873000
+  # Dizionario dati: {"città": "Roma", "popolazione": 2873000}
   ```
 
 - **Accesso e modifica di elementi:**
+  I valori possono essere accessibili e modificati usando le chiavi.
+
   ```python
-  dizionario = {"nome": "Alice", "eta": 30}
-  nome = dizionario["nome"]
-  dizionario["eta"] = 31
+  eta_studente = studente["eta"]  # 24
+  studente["eta"] = 25
+  # Modificata età: {"nome": "Alice", "eta": 25, "corso": "Informatica"}
   ```
 
 ---
-
 #### Metodi dei dizionari
 
-- **get(), keys(), values(), items(), update(), pop():**
+- **get():** Recupera il valore associato a una chiave, restituendo `None` se la chiave non esiste.
+
   ```python
-  valore = dizionario.get("nome")
-  chiavi = dizionario.keys()
-  valori = dizionario.values()
-  coppie = dizionario.items()
-  dizionario.update({"citta": "Roma"})
-  dizionario.pop("eta")
+  nome = studente.get("nome")
+  # Output: "Alice"
   ```
 
----
+- **keys():** Restituisce una vista delle chiavi del dizionario.
 
-#### Iterazione sui dizionari
-
-- **Loop su chiavi, valori e coppie chiave-valore:**
   ```python
-  for chiave, valore in dizionario.items():
-      print(f"{chiave}: {valore}")
+  chiavi = list(studente.keys())
+  # Lista di chiavi: ["nome", "eta", "corso"]
   ```
 
-I dizionari sono molto utili per memorizzare e gestire dati strutturati.
+- **values():** Restituisce una vista dei valori del dizionario.
+
+  ```python
+  valori = list(studente.values())
+  # Lista di valori: ["Alice", 25, "Informatica"]
+  ```
+
+- **items():** Restituisce una vista delle coppie chiave-valore del dizionario.
+
+  ```python
+  elementi = list(studente.items())
+  # Lista di coppie chiave-valore: [("nome", "Alice"), ("eta", 25), ("corso", "Informatica")]
+  ```
+
+- **update():** Aggiorna il dizionario con le coppie chiave-valore di un altro dizionario.
+
+  ```python
+  studente.update({"eta": 26, "università": "La Sapienza"})
+  # Dizionario aggiornato: {"nome": "Alice", "eta": 26, "corso": "Informatica", "università": "La Sapienza"}
+  ```
+
+- **pop():** Rimuove e restituisce il valore associato a una chiave.
+
+  ```python
+  corso = studente.pop("corso")
+  # Rimosso corso, valore: "Informatica", Dizionario studente: {"nome": "Alice", "eta": 26, "università": "La Sapienza"}
+  ```
 
 ---
 
 ### Stringhe
 
+Le stringhe in Python sono sequenze immutabili di caratteri. Supportano molte operazioni e metodi utili per la manipolazione del testo.
+
 #### Operazioni base sulle stringhe
 
-Le stringhe in Python sono immutabili, ma possono essere manipolate usando vari metodi.
+- **Concatenazione:**
+  Le stringhe possono essere concatenate usando l'operatore `+`.
 
-- **Concatenazione, ripetizione, slicing:**
   ```python
-  stringa1 = "Hello"
-  stringa2 = "World"
-  concatenata = stringa1 + " " + stringa2
-  ripetuta = stringa1 * 3
-  parte = stringa1[1:4]
+  saluto = "Ciao, "
+  nome = "Alice"
+  messaggio = saluto + nome
+  # Output: "Ciao, Alice"
+  ```
+
+- **Ripetizione:**
+  Le stringhe possono essere ripetute usando l'operatore `*`.
+
+  ```python
+  risata = "ha" * 3
+  # Output: "hahaha"
+  ```
+
+- **Slicing:**
+  Le stringhe possono essere "sliced" per ottenere sottostringhe.
+
+  ```python
+  testo = "Python è fantastico"
+  parte = testo[7:10]
+  # Output: "è f"
   ```
 
 ---
 
 #### Metodi delle stringhe
 
-Le stringhe hanno molti metodi per manipolare il testo.
+Le stringhe in Python hanno molti metodi utili per la manipolazione del testo:
 
-- **split(), join(), replace(), upper(), lower(), strip(), find():**
+- **split():** Divide la stringa in una lista di sottostringhe usando un delimitatore.
+
   ```python
-  testo = "   Python è fantastico!   "
-  lista_parole = testo.split()
-  testo_unito = " ".join(lista_parole)
-  testo_modificato = testo.replace("fantastico", "potente")
+  testo = "Python è fantastico"
+  parole = testo.split()
+  # Lista di parole: ["Python", "è", "fantastico"]
+  ```
+
+- **join():** Unisce una lista di stringhe in una singola stringa, usando un delimitatore.
+
+  ```python
+  parole = ["Python", "è", "fantastico"]
+  frase = " ".join(parole)
+  # Output: "Python è fantastico"
+  ```
+
+- **replace():** Sostituisce tutte le occorrenze di una sottostringa con un'altra.
+
+  ```python
+  testo = "Python è fantastico"
+  nuovo_testo = testo.replace("fantastico", "potente")
+  # Output: "Python è potente"
+  ```
+
+- **upper() e lower():** Converte la stringa in maiuscolo o minuscolo.
+
+  ```python
+  testo = "Python"
   maiuscolo = testo.upper()
   minuscolo = testo.lower()
-  senza_spazi = testo.strip()
-  posizione = testo.find("Python")
+  # Output maiuscolo: "PYTHON"
+  # Output minuscolo: "python"
+  ```
+
+- **strip():** Rimuove gli spazi bianchi iniziali e finali della stringa.
+
+  ```python
+  testo = "   Python è fantastico!   "
+  testo_pulito = testo.strip()
+  # Output: "Python è fantastico!"
+  ```
+
+- **find():** Trova la posizione della prima occorrenza di una sottostringa.
+
+  ```python
+  testo = "Python è fantastico"
+  posizione = testo.find("fantastico")
+  # Output: 10
   ```
 
 ---
 
-#### Formattazione avanzata
+### Utilizzo della funzione `len()`
 
-- **Template strings e moduli `string`:**
+La funzione `len()` restituisce la lunghezza di una collezione (numero di elementi) o di una stringa (numero di caratteri). Può essere utilizzata con liste, tuple, dizionari, set e stringhe.
+
+- **Liste:**
   ```python
-  from string import Template
-  t = Template("Ciao, $nome!")
-  messaggio = t.substitute(nome="Alice")
+  frutti = ["mela", "banana", "ciliegia"]
+  lunghezza = len(frutti)
+  # Output: 3
   ```
 
-La manipolazione delle stringhe è fondamentale per molte applicazioni, come l'elaborazione del testo e la costruzione di output leggibili.
+- **Tuple:**
+  ```python
+  colori = ("rosso", "verde", "blu")
+  lunghezza = len(colori)
+  # Output: 3
+  ```
+
+- **Dizionari:**
+  ```python
+  studente = {"nome": "Alice", "eta": 24, "corso": "Informatica"}
+  lunghezza = len(studente)
+  # Output: 3
+  ```
+
+- **Set:**
+  ```python
+  numeri = {1, 2, 3, 4}
+  lunghezza = len(numeri)
+  # Output: 4
+  ```
+
+- **Stringhe:**
+  ```python
+  testo = "Python"
+  lunghezza = len(testo)
+  # Output: 6
+  ```
+
+In tutti questi esempi, la funzione `len()` viene utilizzata per determinare il numero di elementi nelle diverse collezioni o il numero di caratteri in una stringa.
+
+---
 
 ---
 
@@ -1074,72 +1418,137 @@ La manipolazione delle stringhe è fondamentale per molte applicazioni, come l'e
 
 ### Funzioni
 
+Le funzioni sono blocchi di codice riutilizzabili che eseguono un'operazione specifica. Permettono di organizzare il codice in modo modulare, facilitando la leggibilità e la manutenzione.
+
 #### Definizione e chiamata di funzioni
 
-Le funzioni sono blocchi di codice riutilizzabili che eseguono un'operazione specifica.
+- **Definizione di una funzione:**
+  Una funzione in Python viene definita utilizzando la parola chiave `def`, seguita dal nome della funzione e dalle parentesi `()` che possono contenere parametri. Il corpo della funzione è indentato e può includere un'istruzione `return` per restituire un valore.
 
-- **Sintassi di definizione:**
   ```python
   def saluta():
       print("Ciao!")
-  saluta()
+  # Definisce una funzione chiamata saluta che stampa "Ciao!"
   ```
 
-Definire funzioni permette di strutturare il codice in modo più modulare e organizzato.
+- **Chiamata di una funzione:**
+  Una funzione viene chiamata utilizzando il suo nome seguito dalle parentesi `()` che possono contenere argomenti.
+
+  ```python
+  saluta()
+  # Output: Ciao!
+  ```
 
 ---
 
 #### Parametri e argomenti
 
+Le funzioni possono accettare input sotto forma di parametri, che sono variabili elencate tra le parentesi nella definizione della funzione. Gli argomenti sono i valori effettivi che vengono passati quando la funzione viene chiamata.
+
+- **Parametri posizionali:**
+  I parametri posizionali sono passati in base alla posizione. L'ordine degli argomenti deve corrispondere all'ordine dei parametri nella definizione della funzione.
+
+  ```python
+  def somma(a, b):
+      return a + b
+
+  risultato = somma(5, 3)
+  # Output: 8
+  ```
+
+  In questo esempio, gli argomenti `5` e `3` sono passati ai parametri `a` e `b` rispettivamente in base alla loro posizione.
+
 - **Parametri di default:**
+  I parametri di default sono definiti con un valore predefinito e possono essere omessi nella chiamata della funzione.
+
   ```python
   def saluta(nome="mondo"):
       print(f"Ciao, {nome}!")
+
   saluta()
+  # Output: Ciao, mondo!
+
   saluta("Alice")
+  # Output: Ciao, Alice!
   ```
 
-I parametri di default permettono di chiamare la funzione senza dover specificare tutti gli argomenti.
+  In questo esempio, se non viene passato alcun argomento, il parametro `nome` assume il valore predefinito `"mondo"`.
+
+- **Argomenti con nome (keyword arguments):**
+  Gli argomenti possono essere passati specificando il nome del parametro, indipendentemente dalla loro posizione.
+
+  ```python
+  def sottrai(a, b):
+      return a - b
+
+  risultato = sottrai(b=5, a=10)
+  # Output: 5
+  ```
+
+  In questo esempio, gli argomenti sono passati utilizzando i nomi dei parametri `a` e `b`, quindi l'ordine non è importante.
 
 ---
 
-- **Argomenti arbitrari (*args e **kwargs):**
-  ```python
-  def somma(*numeri):
-      return sum(numeri)
-  print(somma(1, 2, 3))
+#### Parametri variabili
 
-  def mostra_info(**info):
-      for chiave, valore in info.items():
+Python consente di passare un numero variabile di argomenti a una funzione utilizzando `*args` e `**kwargs`.
+
+- **Argomenti arbitrari (*args):**
+  Il parametro `*args` consente di passare un numero variabile di argomenti posizionali. All'interno della funzione, `args` è una tupla che contiene tutti gli argomenti posizionali passati.
+
+  ```python
+  def somma_tutti(*args):
+      return sum(args)
+
+  risultato = somma_tutti(1, 2, 3, 4)
+  # Output: 10
+  ```
+
+  In questo esempio, `*args` raccoglie tutti gli argomenti posizionali passati alla funzione `somma_tutti` in una tupla, e la funzione `sum()` calcola la somma degli elementi.
+
+- **Argomenti con nome arbitrari (**kwargs):**
+  Il parametro `**kwargs` consente di passare un numero variabile di argomenti con nome. All'interno della funzione, `kwargs` è un dizionario che contiene tutte le coppie chiave-valore passate.
+
+  ```python
+  def stampa_informazioni(**kwargs):
+      for chiave, valore in kwargs.items():
           print(f"{chiave}: {valore}")
-  mostra_info(nome="Alice", eta=30)
+
+  stampa_informazioni(nome="Alice", eta=30, città="Roma")
+  # Output:
+  # nome: Alice
+  # eta: 30
+  # città: Roma
   ```
 
-Gli argomenti arbitrari sono utili quando il numero di argomenti non è noto a priori.
+  In questo esempio, `**kwargs` raccoglie tutti gli argomenti con nome passati alla funzione `stampa_informazioni` in un dizionario, e un ciclo `for` viene utilizzato per stampare ciascuna coppia chiave-valore.
 
----
+- **Combinazione di parametri:**
+  È possibile combinare parametri normali, `*args` e `**kwargs` in una funzione. L'ordine dei parametri deve essere: parametri normali, `*args`, `**kwargs`.
 
-#### Funzioni lambda
-
-Le funzioni lambda sono funzioni anonime e brevi.
-
-- **Definizione e uso delle espressioni lambda:**
   ```python
-  quadrato = lambda x: x ** 2
-  print(quadrato(5))
+  def mostra_dettagli(parametro_fisso, *args, **kwargs):
+      print(f"Parametro fisso: {parametro_fisso}")
+      print("args:", args)
+      print("kwargs:", kwargs)
+
+  mostra_dettagli("obbligatorio", 1, 2, 3, chiave1="valore1", chiave2="valore2")
+  # Output:
+  # Parametro fisso: obbligatorio
+  # args: (1, 2, 3)
+  # kwargs: {'chiave1': 'valore1', 'chiave2': 'valore2'}
   ```
 
-Le lambda sono utili per funzioni brevi e anonime che non necessitano di un nome.
+  In questo esempio, la funzione `mostra_dettagli` accetta un parametro fisso, argomenti posizionali variabili e argomenti con nome variabili, dimostrando la flessibilità nella definizione delle funzioni in Python.
+
 
 ---
-
 ### Gestione delle Eccezioni
 
 #### Introduzione alle eccezioni
 
 Le eccezioni sono eventi che interrompono il normale flusso di un programma. Python gestisce le eccezioni usando blocchi `try-except`.
 
----
 
 - **Tipi di eccezioni comuni:** Alcuni tipi di eccezioni comuni sono `ValueError`, `TypeError`, `KeyError`, `IndexError`.
 
@@ -1747,45 +2156,200 @@ Le list comprehension
 
 ---
 
-### Funzioni Lambda
+Certamente! Ecco la sezione sulle funzioni lambda aggiornata con esempi reali, accompagnati dalle versioni equivalenti senza l'uso di lambda per un confronto chiaro.
 
-#### Definizione e uso delle lambda
+---
 
-Le funzioni lambda sono funzioni anonime e brevi.
+### Funzioni lambda
 
-- **Esempi pratici:**
+Le funzioni lambda sono funzioni anonime e brevi, definite utilizzando la parola chiave `lambda`. Sono utili per eseguire operazioni semplici che non richiedono una funzione nominata. Le lambda vengono interpretate come funzioni inline che possono essere passate come argomenti ad altre funzioni.
+
+#### Definizione e utilizzo delle espressioni lambda
+
+- **Sintassi di base:**
+  Una funzione lambda in Python è definita usando la sintassi:
   ```python
-  somma = lambda a, b: a + b
-  print(somma(5, 3))
+  lambda parametri: espressione
+  ```
+  Dove:
+  - `parametri` è una lista di parametri separati da virgole.
+  - `espressione` è un'operazione singola eseguita sulla base dei parametri.
+
+  **Esempio con lambda:**
+  ```python
+  doppio = lambda x: x * 2
+  print(doppio(5))
+  # Output: 10
   ```
 
----
-
-#### Differenze tra lambda e funzioni tradizionali
-
-- **Vantaggi e limitazioni delle lambda:** Le lambda sono utili per funzioni brevi e anonime. Tuttavia, per funzioni più complesse, è meglio usare definizioni regolari.
-
----
-
-### Closures
-
-#### Definizione e uso delle closures
-
-Le closures sono funzioni che possono catturare e mantenere lo stato dalle loro scope di definizione.
-
-- **Esempi pratici di utilizzo:**
+  **Esempio equivalente senza lambda:**
   ```python
-  def genera_moltiplicatore(n):
-      def moltiplica(x):
-          return x * n
-      return moltiplica
+  def raddoppia(x):
+      return x * 2
 
-  raddoppia = genera_moltiplicatore(2)
-  print(raddoppia(5))  # 10
+  print(raddoppia(5))
+  # Output: 10
   ```
 
+  In questo esempio, `lambda x: x * 2` crea una funzione anonima che moltiplica `x` per 2. La funzione viene assegnata alla variabile `doppio` e invocata con l'argomento `5`. La versione senza lambda utilizza una funzione nominata `raddoppia`.
+
 ---
 
+#### Utilizzo reale delle lambda
+
+Le funzioni lambda sono utili in situazioni dove è richiesta una funzione breve e senza nome. Sono comunemente utilizzate con funzioni che accettano altre funzioni come argomenti.
+
+- **Ordinamento con `sorted()`:**
+  La funzione `sorted()` può accettare una funzione chiave che determina l'ordine degli elementi. Le lambda possono essere utilizzate per definire questa funzione chiave inline.
+
+  **Esempio con lambda:**
+  ```python
+  studenti = [
+      {"nome": "Alice", "eta": 25},
+      {"nome": "Bob", "eta": 20},
+      {"nome": "Charlie", "eta": 23}
+  ]
+  
+  ordinati_per_eta = sorted(studenti, key=lambda studente: studente["eta"])
+  print(ordinati_per_eta)
+  # Output: [{'nome': 'Bob', 'eta': 20}, {'nome': 'Charlie', 'eta': 23}, {'nome': 'Alice', 'eta': 25}]
+  ```
+
+  **Esempio equivalente senza lambda:**
+  ```python
+  def estrai_eta(studente):
+      return studente["eta"]
+
+  ordinati_per_eta = sorted(studenti, key=estrai_eta)
+  print(ordinati_per_eta)
+  # Output: [{'nome': 'Bob', 'eta': 20}, {'nome': 'Charlie', 'eta': 23}, {'nome': 'Alice', 'eta': 25}]
+  ```
+
+  In questo esempio, la lambda `lambda studente: studente["eta"]` estrae l'età di ciascun studente per ordinare la lista di dizionari. La versione senza lambda utilizza una funzione nominata `estrai_eta`.
+
+---
+
+- **Filtraggio con `filter()`:**
+  La funzione `filter()` utilizza una funzione booleana per determinare quali elementi mantenere in una lista. Le lambda possono semplificare la scrittura di questa funzione booleana.
+
+  **Esempio con lambda:**
+  ```python
+  numeri = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  
+  numeri_pari = list(filter(lambda x: x % 2 == 0, numeri))
+  print(numeri_pari)
+  # Output: [2, 4, 6, 8, 10]
+  ```
+
+  **Esempio equivalente senza lambda:**
+  ```python
+  def è_pari(x):
+      return x % 2 == 0
+
+  numeri_pari = list(filter(è_pari, numeri))
+  print(numeri_pari)
+  # Output: [2, 4, 6, 8, 10]
+  ```
+
+  In questo esempio, la lambda `lambda x: x % 2 == 0` ritorna `True` per i numeri pari, mantenendoli nella lista filtrata. La versione senza lambda utilizza una funzione nominata `è_pari`.
+
+---
+
+- **Trasformazione con `map()`:**
+  La funzione `map()` applica una funzione a ogni elemento di una lista. Le lambda possono essere usate per definire questa funzione inline.
+
+  **Esempio con lambda:**
+  ```python
+  numeri = [1, 2, 3, 4, 5]
+  
+  doppi = list(map(lambda x: x * 2, numeri))
+  print(doppi)
+  # Output: [2, 4, 6, 8, 10]
+  ```
+
+  **Esempio equivalente senza lambda:**
+  ```python
+  def raddoppia(x):
+      return x * 2
+
+  doppi = list(map(raddoppia, numeri))
+  print(doppi)
+  # Output: [2, 4, 6, 8, 10]
+  ```
+
+  In questo esempio, la lambda `lambda x: x * 2` raddoppia ogni numero nella lista `numeri`. La versione senza lambda utilizza una funzione nominata `raddoppia`.
+
+---
+
+- **Riduzione con `functools.reduce()`:**
+  La funzione `reduce()` applica una funzione binaria cumulativa a tutti gli elementi di una lista, riducendo la lista a un singolo valore. Le lambda possono essere utilizzate per definire la funzione binaria.
+
+  **Esempio con lambda:**
+  ```python
+  from functools import reduce
+  
+  numeri = [1, 2, 3, 4, 5]
+  
+  somma_totale = reduce(lambda x, y: x + y, numeri)
+  print(somma_totale)
+  # Output: 15
+  ```
+
+  **Esempio equivalente senza lambda:**
+  ```python
+  def somma(x, y):
+      return x + y
+
+  somma_totale = reduce(somma, numeri)
+  print(somma_totale)
+  # Output: 15
+  ```
+
+  In questo esempio, la lambda `lambda x, y: x + y` somma cumulativamente tutti i numeri nella lista `numeri`, restituendo il totale. La versione senza lambda utilizza una funzione nominata `somma`.
+
+---
+
+- **Lambda come funzione di callback:**
+  Le lambda possono essere utilizzate come funzioni di callback in vari contesti, come negli eventi di interfaccia grafica o nei metodi asincroni.
+
+  **Esempio con lambda:**
+  ```python
+  def esegui(callback):
+      risultato = callback(5)
+      print(risultato)
+  
+  esegui(lambda x: x ** 2)
+  # Output: 25
+  ```
+
+  **Esempio equivalente senza lambda:**
+  ```python
+  def esegui(callback):
+      risultato = callback(5)
+      print(risultato)
+
+  def quadrato(x):
+      return x ** 2
+
+  esegui(quadrato)
+  # Output: 25
+  ```
+
+  In questo esempio, una lambda che eleva `x` al quadrato viene passata come funzione di callback a `esegui`. La versione senza lambda utilizza una funzione nominata `quadrato`.
+
+---
+
+### Limiti delle funzioni lambda
+
+- **Solo una singola espressione:** Le lambda non possono contenere più istruzioni o comandi complessi.
+  ```python
+  # Non consentito:
+  # lambda x: if x > 0: return x else: return -x
+  ```
+
+- **Difficoltà di lettura:** Le lambda possono essere difficili da leggere e comprendere se usate in modo eccessivo o in contesti complessi.
+
+In sintesi, le funzioni lambda in Python sono strumenti potenti per definire funzioni brevi e anonime utilizzabili in molti contesti funzionali, come l'ordinamento, il filtraggio e la trasformazione dei dati. Tuttavia, per funzioni più complesse, è meglio utilizzare funzioni nominate per una maggiore chiarezza e leggibilità del codice.
 #### Decoratori
 
 I decoratori sono una forma di closure che permettono di estendere il comportamento delle funzioni.
