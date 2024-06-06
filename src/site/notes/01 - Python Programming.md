@@ -1998,3 +1998,226 @@ Le espressioni regolari permettono di cercare e manipolare stringhe in modo avan
   risultato = " ".join(lista_stringhe)
   print(risultato)
   ```
+
+---
+
+## Gestione dei File
+
+La gestione dei file in Python permette di leggere e scrivere dati in file. È utile per salvare dati persistenti, leggere configurazioni o registrare informazioni.
+
+### Operazioni di Base su File
+
+#### Apertura di File
+
+Per aprire un file in Python, usiamo la funzione `open()`, che restituisce un oggetto file. È importante chiudere sempre il file dopo averlo usato per liberare risorse, cosa che può essere fatta con il metodo `close()` o usando una dichiarazione `with`.
+
+- **Sintassi di apertura:**
+  ```python
+  file = open('nomefile.txt', 'r')  # 'r' è la modalità di apertura (lettura)
+  ```
+
+- **Modalità di apertura:**
+  - **`'r'`**: Lettura (default). Restituisce un errore se il file non esiste.
+  - **`'w'`**: Scrittura. Crea un nuovo file o sovrascrive se il file esiste.
+  - **`'a'`**: Aggiunta. Aggiunge al file esistente senza sovrascriverlo.
+  - **`'b'`**: Modalità binaria. Per file binari (es. immagini).
+  - **`'t'`**: Modalità testo (default). Per file di testo.
+  - **`'r+'`**: Lettura e scrittura. Restituisce un errore se il file non esiste.
+  - **`'w+'`**: Lettura e scrittura. Sovrascrive il file esistente o crea un nuovo file.
+  - **`'a+'`**: Lettura e aggiunta. Aggiunge al file esistente o crea un nuovo file.
+
+  **Esempio di apertura e chiusura di file:**
+  ```python
+  file = open('nomefile.txt', 'r')
+  # Operazioni sul file
+  file.close()
+  ```
+
+  **Esempio con la dichiarazione `with`:**
+  ```python
+  with open('nomefile.txt', 'r') as file:
+      contenuto = file.read()
+  # Il file è automaticamente chiuso al termine del blocco with
+  ```
+
+---
+
+#### Lettura di File
+
+Python offre diverse modalità per leggere i contenuti di un file.
+
+- **`file.read()`**: Legge l'intero contenuto del file come una stringa.
+  ```python
+  with open('nomefile.txt', 'r') as file:
+      contenuto = file.read()
+      print(contenuto)
+  # Output: Contenuto del file
+  ```
+
+- **`file.readline()`**: Legge una singola riga dal file.
+  ```python
+  with open('nomefile.txt', 'r') as file:
+      linea = file.readline()
+      print(linea)
+  # Output: Prima riga del file
+  ```
+
+- **`file.readlines()`**: Legge tutte le righe del file in una lista.
+  ```python
+  with open('nomefile.txt', 'r') as file:
+      righe = file.readlines()
+      print(righe)
+  # Output: Lista di righe del file
+  ```
+
+---
+
+#### Scrittura di File
+
+Python consente di scrivere contenuti su file, creando nuovi file o modificando file esistenti.
+
+- **`file.write(stringa)`**: Scrive una stringa nel file. Se il file esiste, sovrascrive il contenuto.
+  ```python
+  with open('nuovofile.txt', 'w') as file:
+      file.write("Questo è un nuovo file.")
+  # Crea (o sovrascrive) il file con la stringa fornita
+  ```
+
+- **`file.writelines(lista_di_stringhe)`**: Scrive una lista di stringhe nel file.
+  ```python
+  righe = ["Riga 1\n", "Riga 2\n", "Riga 3\n"]
+  with open('nuovofile.txt', 'w') as file:
+      file.writelines(righe)
+  # Scrive ogni stringa della lista come una riga nel file
+  ```
+
+---
+
+### Modalità Avanzate di Apertura di File
+
+#### Modalità Binaria
+
+Per leggere o scrivere file binari, come immagini o file eseguibili, si usa la modalità binaria (`'b'`).
+
+- **Lettura di un file binario:**
+  ```python
+  with open('immagine.jpg', 'rb') as file:
+      dati = file.read()
+  # Legge il contenuto binario del file
+  ```
+
+- **Scrittura di un file binario:**
+  ```python
+  with open('copia_immagine.jpg', 'wb') as file:
+      file.write(dati)
+  # Scrive i dati binari nel file
+  ```
+
+#### Gestione degli Errori
+
+Quando si lavora con i file, è importante gestire gli errori che possono verificarsi, come la mancanza del file o permessi insufficienti.
+
+- **Gestione degli errori con `try...except`:**
+  ```python
+  try:
+      with open('nomefile.txt', 'r') as file:
+          contenuto = file.read()
+  except FileNotFoundError:
+      print("Il file non esiste.")
+  except IOError:
+      print("Errore di I/O.")
+  ```
+
+---
+
+## Serializzazione
+
+La serializzazione è il processo di trasformazione dei dati (come oggetti Python) in un formato che può essere facilmente memorizzato e recuperato, come JSON.
+
+### JSON: JavaScript Object Notation
+
+JSON è un formato leggero di scambio di dati. È facile da leggere e scrivere per gli umani e facile da analizzare e generare per le macchine.
+
+#### Utilizzo del modulo `json`
+
+Python fornisce il modulo `json` per serializzare (convertire oggetti Python in JSON) e deserializzare (convertire JSON in oggetti Python).
+
+#### Serializzare Dati in JSON
+
+- **`json.dumps()`**: Converte un oggetto Python in una stringa JSON.
+  ```python
+  import json
+
+  dati = {
+      "nome": "Alice",
+      "eta": 30,
+      "città": "Roma"
+  }
+
+  json_stringa = json.dumps(dati)
+  print(json_stringa)
+  # Output: {"nome": "Alice", "eta": 30, "città": "Roma"}
+  ```
+
+- **Scrivere una stringa JSON in un file:**
+  ```python
+  with open('dati.json', 'w') as file:
+      json_stringa = json.dumps(dati)
+      file.write(json_stringa)
+  # Scrive la stringa JSON nel file 'dati.json'
+  ```
+
+---
+
+#### Deserializzare Dati da JSON
+
+- **`json.loads()`**: Converte una stringa JSON in un oggetto Python.
+  ```python
+  json_stringa = '{"nome": "Alice", "eta": 30, "città": "Roma"}'
+  dati = json.loads(json_stringa)
+  print(dati)
+  # Output: {'nome': 'Alice', 'eta': 30, 'città': 'Roma'}
+  ```
+
+- **Leggere una stringa JSON da un file e deserializzare:**
+  ```python
+  with open('dati.json', 'r') as file:
+      json_stringa = file.read()
+      dati = json.loads(json_stringa)
+  print(dati)
+  # Output: {'nome': 'Alice', 'eta': 30, 'città': 'Roma'}
+  ```
+
+---
+
+### Esempio Completo di Serializzazione e Deserializzazione
+
+**Serializzare e scrivere in un file:**
+```python
+import json
+
+dati = {
+    "nome": "Alice",
+    "eta": 30,
+    "città": "Roma"
+}
+
+with open('dati.json', 'w') as file:
+    json_stringa = json.dumps(dati)
+    file.write(json_stringa)
+# Scrive i dati come JSON nel file 'dati.json'
+```
+
+**Leggere da un file e deserializzare:**
+```python
+import json
+
+with open('dati.json', 'r') as file:
+    json_stringa = file.read()
+    dati = json.loads(json_stringa)
+print(dati)
+# Output: {'nome': 'Alice', 'eta': 30, 'città': 'Roma'}
+```
+
+In questo esempio, i dati vengono serializzati in formato JSON e scritti in un file `dati.json`. Successivamente, i dati vengono letti dal file e deserializzati in un oggetto Python.
+
