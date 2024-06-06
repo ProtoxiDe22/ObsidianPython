@@ -2,161 +2,161 @@
 {"dg-publish":true,"permalink":"/course-outline/","tags":["gardenEntry"]}
 ---
 
-### Capitolo 1: Introduzione a Python
-#### 1.1 Panoramica di Python
-- Storia di Python
-  - Creazione e sviluppo del linguaggio
-  - Versioni principali (Python 2 vs Python 3)
-- Applicazioni di Python
-  - Sviluppo web
-  - Data science e machine learning
-  - Automazione e scripting
-  - Applicazioni desktop
+### ==Capitolo 1: Introduzione a Python==
+#### ==1.1 Panoramica di Python==
+- ==Storia di Python==
+  - ==Creazione e sviluppo del linguaggio==
+  - ==Versioni principali (Python 2 vs Python 3)==
+- ==Applicazioni di Python==
+  - ==Sviluppo web==
+  - ==Data science e machine learning==
+  - ==Automazione e scripting==
+  - ==Applicazioni desktop==
 
-#### 1.2 Installazione e Configurazione dell'Ambiente di Sviluppo
-- Installare Python
-  - Su Windows
-  - Su macOS
-  - Su Linux
-- Configurare un ambiente di sviluppo
-  - Visual Studio Code
-- Utilizzo dei gestori di pacchetti
-  - pip
-  - venv e virtualenv
+#### ==1.2 Installazione e Configurazione dell'Ambiente di Sviluppo==
+- ==Installare Python==
+  - ==Su Windows==
+  - ==Su macOS==
+  - ==Su Linux==
+- ==Configurare un ambiente di sviluppo==
+  - ==Visual Studio Code==
+- ==Utilizzo dei gestori di pacchetti==
+  - ==pip==
+  - ==venv e virtualenv==
 
-#### 1.3 Primi Passi con Python
-- Scrivere e eseguire il primo programma Python
-  - "Hello, World!"
-- Utilizzo dell'interprete Python
-  - Interprete interattivo
-  - Esecuzione di script da riga di comando
+#### ==1.3 Primi Passi con Python==
+- ==Scrivere e eseguire il primo programma Python==
+  - =="Hello, World!"==
+- ==Utilizzo dell'interprete Python==
+  - ==Interprete interattivo==
+  - ==Esecuzione di script da riga di comando==
 
-### Capitolo 2: Termini e Definizioni Fondamentali
-#### 2.1 Concetti di Base
-- Identificatori e parole chiave
-  - Nomi validi per variabili e funzioni
-  - Parole chiave riservate di Python
-- Commenti e documentazione del codice
-  - Commenti singola linea e multilinea
-  - Docstring per documentare funzioni e classi
+### ==Capitolo 2: Termini e Definizioni Fondamentali==
+#### ==2.1 Concetti di Base==
+- ==Identificatori e parole chiave==
+  - ==Nomi validi per variabili e funzioni==
+  - ==Parole chiave riservate di Python==
+- ==Commenti e documentazione del codice==
+  - ==Commenti singola linea e multilinea==
+  - ==Docstring per documentare funzioni e classi==
 
-#### 2.2 Logica e Struttura di Python
-- Blocco di codice e indentazione
-  - Regole di indentazione in Python
-  - Errori comuni di indentazione
-- Python come linguaggio interpretato
-  - Differenza tra linguaggi interpretati e compilati
+#### ==2.2 Logica e Struttura di Python==
+- ==Blocco di codice e indentazione==
+  - ==Regole di indentazione in Python==
+  - ==Errori comuni di indentazione==
+- ==Python come linguaggio interpretato==
+  - ==Differenza tra linguaggi interpretati e compilati==
 
-### Capitolo 3: Literals, Variabili e Sistemi Numerici
-#### 3.1 Literals e Variabili
-- Literals
-  - Numerici (interi, float, complessi)
-  - Stringhe
-  - Booleani
-  - Literals speciali (None)
-- Dichiarazione e assegnazione di variabili
-  - Convenzioni di denominazione
-  - Assegnazione multipla
+### ==Capitolo 3: Literals, Variabili e Sistemi Numerici==
+#### ==3.1 Literals e Variabili==
+- ==Literals==
+  - ==Numerici (interi, float, complessi)==
+  - ==Stringhe==
+  - ==Booleani==
+  - ==Literals speciali (None)==
+- ==Dichiarazione e assegnazione di variabili==
+  - ==Convenzioni di denominazione==
+  - ==Assegnazione multipla==
 
-#### 3.2 Tipi di Dati Numerici
-- Interi, float e complessi
-  - Proprietà e operazioni sui tipi numerici
-- Conversione di tipi numerici
-  - Funzioni `int()`, `float()`, `complex()`
+#### ==3.2 Tipi di Dati Numerici==
+- ==Interi, float e complessi==
+  - ==Proprietà e operazioni sui tipi numerici==
+- ==Conversione di tipi numerici==
+  - ==Funzioni `int()`, `float()`, `complex()`==
 
-#### 3.3 Operatori
-- Operatori aritmetici
-  - Somma, sottrazione, moltiplicazione, divisione
-  - Operatori modulo e potenza
-- Operatori di confronto
-  - Uguale, diverso, maggiore, minore, maggiore o uguale, minore o uguale
-- Operatori logici
-  - and, or, not
-- Operatori di assegnazione
-  - =, +=, -=, *=, /=, %=
-- Operatori bitwise
-  - &, |, ^, ~, <<, >>
+#### ==3.3 Operatori==
+- ==Operatori aritmetici==
+  - ==Somma, sottrazione, moltiplicazione, divisione==
+  - ==Operatori modulo e potenza==
+- ==Operatori di confronto==
+  - ==Uguale, diverso, maggiore, minore, maggiore o uguale, minore o uguale==
+- ==Operatori logici==
+  - ==and, or, not==
+- ==Operatori di assegnazione==
+  - ===, +=, -=, *=, /=, %===
+- ==Operatori bitwise==
+  - ==&, |, ^, ~, <<, >>==
 
-### Capitolo 4: Input/Output da Console
-#### 4.1 Operazioni di Input
-- Funzione `input()`
-  - Lettura di stringhe da input
-  - Conversione dei tipi di input
+### ==Capitolo 4: Input/Output da Console==
+#### ==4.1 Operazioni di Input==
+- ==Funzione `input()`==
+  - ==Lettura di stringhe da input==
+  - ==Conversione dei tipi di input==
 
-#### 4.2 Operazioni di Output
-- Funzione `print()`
-  - Argomenti multipli e separatori
-  - Fine riga e fine di stampa
-- Formattazione delle stringhe
-  - f-strings (formatted string literals)
-  - Metodo `format()`
-  - Operatore `%` (percent formatting)
+#### ==4.2 Operazioni di Output==
+- ==Funzione `print()`==
+  - ==Argomenti multipli e separatori==
+  - ==Fine riga e fine di stampa==
+- ==Formattazione delle stringhe==
+  - ==f-strings (formatted string literals)==
+  - ==Metodo `format()`==
+  - ==Operatore `%` (percent formatting)==
 
-### Capitolo 5: Flusso di Controllo - Blocchi Condizionali e Loop
-#### 5.1 Istruzione If
-- Sintassi dell'istruzione if
-  - if semplice
-  - if-elif-else
-- Esempi pratici
-  - Condizioni multiple e annidate
+### ==Capitolo 5: Flusso di Controllo - Blocchi Condizionali e Loop==
+#### ==5.1 Istruzione If==
+- ==Sintassi dell'istruzione if==
+  - ==if semplice==
+  - ==if-elif-else==
+- ==Esempi pratici==
+  - ==Condizioni multiple e annidate==
 
-#### 5.2 Loop
-- Loop for
-  - Iterare su sequenze (liste, stringhe, range)
-  - Funzione `range()`
-- Loop while
-  - Condizioni di continuazione e terminazione
-- Istruzioni di controllo del loop
-  - break
-  - continue
-  - pass
+#### ==5.2 Loop==
+- ==Loop for==
+  - ==Iterare su sequenze (liste, stringhe, range)==
+  - ==Funzione `range()`==
+- ==Loop while==
+  - ==Condizioni di continuazione e terminazione==
+- ==Istruzioni di controllo del loop==
+  - ==break==
+  - ==continue==
+  - ==pass==
 
-### Capitolo 6: Data Collection - Tuple, Dizionari, Elenchi e Stringhe
-#### 6.1 Liste
-- Creazione e manipolazione delle liste
-  - Liste vuote e popolazione di liste
-  - Indicizzazione e slicing
-- Metodi delle liste
-  - append(), insert(), remove(), pop(), sort(), reverse()
-- Liste nidificate e comprensione delle liste
-  - Liste di liste
-  - List comprehension
+### ==Capitolo 6: Data Collection - Tuple, Dizionari, Elenchi e Stringhe==
+#### ==6.1 Liste==
+- ==Creazione e manipolazione delle liste==
+  - ==Liste vuote e popolazione di liste==
+  - ==Indicizzazione e slicing==
+- ==Metodi delle liste==
+  - ==append(), insert(), remove(), pop(), sort(), reverse()==
+- ==Liste nidificate e comprensione delle liste==
+  - ==Liste di liste==
+  - ==List comprehension==
 
-#### 6.2 Tuple
-- Creazione e uso delle tuple
-  - Tuple vuote e con un singolo elemento
-- Differenze tra liste e tuple
-  - Immutabilità delle tuple
-  - Operazioni comuni su tuple
+#### ==6.2 Tuple==
+- ==Creazione e uso delle tuple==
+  - ==Tuple vuote e con un singolo elemento==
+- ==Differenze tra liste e tuple==
+  - ==Immutabilità delle tuple==
+  - ==Operazioni comuni su tuple==
 
-#### 6.3 Dizionari
-- Creazione e uso dei dizionari
-  - Dizionari vuoti e popolazione di dizionari
-  - Accesso e modifica di elementi
-- Metodi dei dizionari
-  - get(), keys(), values(), items(), update(), pop()
-- Iterazione sui dizionari
-  - Loop su chiavi, valori e coppie chiave-valore
+#### ==6.3 Dizionari==
+- ==Creazione e uso dei dizionari==
+  - ==Dizionari vuoti e popolazione di dizionari==
+  - ==Accesso e modifica di elementi==
+- ==Metodi dei dizionari==
+  - ==get(), keys(), values(), items(), update(), pop()==
+- ==Iterazione sui dizionari==
+  - ==Loop su chiavi, valori e coppie chiave-valore==
 
-#### 6.4 Stringhe
-- Operazioni base sulle stringhe
-  - Concatenazione, ripetizione, slicing
-- Metodi delle stringhe
-  - split(), join(), replace(), upper(), lower(), strip(), find()
-- Formattazione avanzata
-  - Template strings e moduli `string`
+#### ==6.4 Stringhe==
+- ==Operazioni base sulle stringhe==
+  - ==Concatenazione, ripetizione, slicing==
+- ==Metodi delle stringhe==
+  - ==split(), join(), replace(), upper(), lower(), strip(), find()==
+- ==Formattazione avanzata==
+  - ==Template strings e moduli `string`==
 
-### Capitolo 7: Funzioni ed Eccezioni
-#### 7.1 Funzioni
-- Definizione e chiamata di funzioni
-  - Sintassi di definizione
-  - Parametri posizionali e keyword
-- Parametri e argomenti
-  - Parametri di default
-  - Argomenti arbitrari (*args e **kwargs)
-- Funzioni lambda
-  - Definizione e uso delle espressioni lambda
-  - Differenze con funzioni tradizionali
+### ==Capitolo 7: Funzioni ed Eccezioni==
+#### ==7.1 Funzioni==
+- ==Definizione e chiamata di funzioni==
+  - ==Sintassi di definizione==
+  - ==Parametri posizionali e keyword==
+- ==Parametri e argomenti==
+  - ==Parametri di default==
+  - ==Argomenti arbitrari (*args e **kwargs)==
+- ==Funzioni lambda==
+  - ==Definizione e uso delle espressioni lambda==
+  - ==Differenze con funzioni tradizionali==
 
 #### 7.2 Gestione delle Eccezioni
 - Introduzione alle eccezioni
